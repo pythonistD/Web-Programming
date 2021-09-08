@@ -6,8 +6,15 @@ header{
 div.text::first-line{
   color:red;
 }
+img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 70px;
+  height: 500px;
+}
 div.text{
-  float:right;
+  float:left;
   border: 1px solid black;
   padding:30px;
   display: block;

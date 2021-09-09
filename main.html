@@ -14,22 +14,45 @@
       </div>
      </header>
      <img src="img\areas.png" alt="">
-      <form class="main-form" action="index.html" method="post">
+      <form class="main-form" action="https://localhost/script.php" method="get">
         <div class="wrapper">
           <div class="row">
-            <label for="X">X:</label>
-            <input id="GET-X" type="number" name="x">
+            <label for="X">X:
+              <label for="-4">-4</label>
+              <input id="X" type="radio" name="x" value="-4">
+              <label for="-4">-3</label>
+              <input id="X" type="radio" name="x" value="-3">
+              <label for="-4">-2</label>
+              <input id="X" type="radio" name="x" value="-2">
+              <label for="-4">-1</label>
+              <input id="X" type="radio" name="x" value="-1">
+              <label for="-4">0</label>
+              <input id="X" type="radio" name="x" value="0">
+              <label for="-4">1</label>
+              <input id="X" type="radio" name="x" value="1">
+              <label for="-4">2</label>
+              <input id="X" type="radio" name="x" value="2">
+              <label for="-4">3</label>
+              <input id="X" type="radio" name="x" value="3">
+              <label for="-4">4</label>
+              <input id="X" type="radio" name="x" value="4">
+            </label>
           </div>
           <div class="row">
             <label for="Y">Y:</label>
-            <input id="GET-Y" type="number" name="y">
+            <input id="GET-Y" type="text" name="y">
           </div>
           <div class="row">
-            <label for="R">R:</label>
-            <input id="GET-R" type="number" name="r">
+            <select name="r">
+              <option value="1" selected>R:1</option>
+              <option value="2">R:2</option>
+              <option value="3">R:3</option>
+              <option value="4">R:4</option>
+              <option value="5">R:5</option>
+            </select>
           </div>
           <div class="submit">
-            <input type="submit" value="Save">
+            <input type="submit" value="Send">
           </div>
         </div>
       </form>

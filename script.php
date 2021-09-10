@@ -5,19 +5,16 @@
 //получаем дату и время по москве
   date_default_timezone_set('Europe/Moscow');
   $now= date("d.m.y H:i");
-  echo $now;
 //получаем параметры из main.html
   $x = $_GET["x"];
   $y = $_GET["y"];
   $r = $_GET["r"];
   //Hit check functions
   global $message;
-  function checkHit()
+  function checkHit($x,$y,$r)
   {
-    if(checkTriangle($x,$y,$r) || checkSq($x,$y,$r) || checkSector($x,$y,$r)){
-      $message = "Точка попала";
-    }
-    $message = "Точка не попала";
+    return checkTriangle($x,$y,$r) ||
+    checkSq($x,$y,$r) || checkSector($x,$y,$r);
   }
   function checkTriangle($x,$y,$r)
   {
@@ -37,6 +34,7 @@
     $a = module($x1,$y1,$x2,$y2);
     $b = module($x2,$y2,$x3,$y3);
     $c = module($x3,$y3,$x1,$y1);
+    $p = $a+$b+$c;
     $s = sqrt($p*($p-$a)*($p-$b)*($p-$c));
     return $s;
   }
@@ -55,11 +53,23 @@
     return $x <= 0 && $y >=0 &&
     sqrt($x^2 + $y^2) <= $r;
   }
+  function hitInfo($x,$y,$r)
+  {
+    if(checkHit($x,$y,$r)){
+      $message = "Точка попала";
+    }else
+	{
+	  $message = "Точка не попала";
+	}
+	return $message;
+  }
   //получаем время окончания работы скрипта
   $finish = microtime(true);
 	//высчитываем время работы (разницу) и округляем
   $timeWork=$finish-$start;
   $timeWork=round($timeWork,7);
   //заполняем переменную сессии для отображения всей таблицы
+  $message = hitInfo($x,$y,$r);
   echo $message;
+  echo '<br>'.checkHit($x,$y,$r);
  ?>

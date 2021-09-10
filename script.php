@@ -63,13 +63,57 @@
 	}
 	return $message;
   }
+  function sessionNumber()
+  {
+	  if (!isset($_SESSION['count']))
+{
+   $_SESSION['count']= 1;
+}
+else
+{
+  ++$_SESSION['count'];
+}
+
+  }
+
   //получаем время окончания работы скрипта
   $finish = microtime(true);
 	//высчитываем время работы (разницу) и округляем
   $timeWork=$finish-$start;
   $timeWork=round($timeWork,7);
   //заполняем переменную сессии для отображения всей таблицы
+  sessionNumber();
   $message = hitInfo($x,$y,$r);
-  echo $message;
-  echo '<br>'.checkHit($x,$y,$r);
+  $sessionNumber = $_SESSION['count'];
+  $_SESSION['tableRw'.sessionNumber] =
+  "<tr>
+	  <td>$x</td>
+	  <td>$y</td>
+	  <td>$r</td>
+	  <td>$message</td>
+	  <td>$timeWork</td>
+	  <td>$now</td>
+  </tr>";
  ?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <table>
+      <tr>
+    	  <td>X</td>
+    	  <td>Y</td>
+    	  <td>R</td>
+    	  <td>Result</td>
+    	  <td>Work time</td>
+    	  <td>Current time</td>
+      </tr>
+      <?php foreach ($_SESSION as $value) {
+        echo $value;
+      } ?>
+    </table>
+  </body>
+</html>

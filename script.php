@@ -85,7 +85,7 @@ else
   sessionNumber();
   $message = hitInfo($x,$y,$r);
   $sessionNumber = $_SESSION['count'];
-  $_SESSION['tableRw'.sessionNumber] =
+  $_SESSION['tableRw'.$sessionNumber] =
   "<tr>
 	  <td>$x</td>
 	  <td>$y</td>
@@ -102,7 +102,7 @@ else
     <title></title>
   </head>
   <body>
-    <table>
+    <table border="1px solid black">
       <tr>
     	  <td>X</td>
     	  <td>Y</td>

@@ -94,15 +94,7 @@ else
 	  <td>$timeWork</td>
 	  <td>$now</td>
   </tr>";
- ?>
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <table border="1px solid black">
+echo = "<table border="1px solid black">
       <tr>
     	  <td>X</td>
     	  <td>Y</td>
@@ -111,9 +103,8 @@ else
     	  <td>Work time</td>
     	  <td>Current time</td>
       </tr>
-      <?php foreach ($_SESSION as $value) {
-        echo $value;
-      } ?>
-    </table>
-  </body>
-</html>
+    </table>";
+    <foreach ($_SESSION as $value) {
+      echo $value;
+    }
+    ?>

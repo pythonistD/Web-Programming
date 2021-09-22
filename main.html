@@ -14,7 +14,7 @@
       </div>
      </header>
      <img src="img\areas.png" alt="">
-      <form class="main-form" action="https://localhost/script.php" method="get">
+      <form class="main-form"  method="get">
         <div class="wrapper">
           <div class="row">
             <label for="X">X:
@@ -52,10 +52,11 @@
             </select>
           </div>
           <div class="submit">
-            <input type="submit" value="Send">
+            <input type="submit" value="Send" id="SendData">
           </div>
         </div>
       </form>
-      <script src="validator.js"></script>
+      <div id="out" class="output"><h1>Вывод:</h1></div>
   </body>
+  <script src="validator.js"></script>
 </html>

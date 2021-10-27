@@ -1,5 +1,8 @@
 <?php
-  session_start();
+
+use JetBrains\PhpStorm\Pure;
+
+session_start();
 //запоминаем время начала работы скрипта
   $start = microtime(true);
 //получаем дату и время по москве
@@ -8,52 +11,48 @@
 //получаем параметры из main.html
   $x = $_GET["x"];
   $y = $_GET["y"];
-  $r = $_GET["r"];
+  $r = $_GET["R"];
   //Hit check functions
   global $message;
-  function checkHit($x,$y,$r)
+  #[Pure] function checkHit($x, $y, $r): bool
   {
     return checkTriangle($x,$y,$r) ||
     checkSq($x,$y,$r) || checkSector($x,$y,$r);
   }
-  function checkTriangle($x,$y,$r)
+  #[Pure] function checkTriangle($x, $y, $r): bool
   {
     $S1 = squareArea(0,0,$x,$y,$r/2,0);
     $S2 = squareArea(0,$r/2,$x,$y,$r/2,0);
     $S3 = squareArea(0,0,$x,$y,$r/2,0);
     $S = squareArea(0,0,0,$r/2,$r/2,0);
     $Sum = $S1 + $S2 + $S3;
-    if($Sum > $S){
-      return false;
-    }
-    return true;
+      return !($Sum > $S);
 
   }
-  function squareArea($x1,$y1,$x2,$y2,$x3,$y3)
+  #[Pure] function squareArea($x1, $y1, $x2, $y2, $x3, $y3): float
   {
     $a = module($x1,$y1,$x2,$y2);
     $b = module($x2,$y2,$x3,$y3);
     $c = module($x3,$y3,$x1,$y1);
     $p = $a+$b+$c;
-    $s = sqrt($p*($p-$a)*($p-$b)*($p-$c));
-    return $s;
+    return sqrt($p*($p-$a)*($p-$b)*($p-$c));
   }
-  function module($x1,$y1, $x2,$y2)
+  function module($x1,$y1, $x2,$y2): float
   {
     return sqrt(($x2-$x1)^2 + ($y2-$y1)^2);
   }
 
-  function checkSq($x,$y,$r)
+  function checkSq($x,$y,$r): bool
   {
     return $x >= 0 && $x <= $r &&
     $y <= 0 && $y >= -$r;
   }
-  function checkSector($x,$y,$r)
+  function checkSector($x,$y,$r): bool
   {
     return $x <= 0 && $y >=0 &&
     sqrt($x^2 + $y^2) <= $r;
   }
-  function hitInfo($x,$y,$r)
+  #[Pure] function hitInfo($x, $y, $r): string
   {
     if(checkHit($x,$y,$r)){
       $message = "Точка попала";
@@ -94,7 +93,7 @@ else
 	  <td>$timeWork</td>
 	  <td>$now</td>
   </tr>";
-echo = "<table border="1px solid black">
+echo "<table>
       <tr>
     	  <td>X</td>
     	  <td>Y</td>
@@ -104,7 +103,7 @@ echo = "<table border="1px solid black">
     	  <td>Current time</td>
       </tr>
     </table>";
-    <foreach ($_SESSION as $value) {
+    foreach ($_SESSION as $value) {
       echo $value;
     }
-    ?>
+

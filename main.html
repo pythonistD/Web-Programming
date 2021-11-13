@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-    <script src="validator.js"></script>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css\style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" type="image/jpg" href="img/favicon.ico"/>
     <title>Lab#1</title>
 </head>
 <body>
@@ -14,8 +14,8 @@
         <p>variant:11021</p>
     </div>
 </header>
-<img src="img\areas.png" alt="">
-<form class="main-form">
+<img src="img/areas.png" alt="">
+<div class="main-form">
     <div class="wrapper">
         <div class="row">
             X:
@@ -29,7 +29,7 @@
             <label for="8">3</label><input id="8" type="radio" name="x" value="3">
             <label for="9">4</label><input id="9" type="radio" name="x" value="4">
             <label for="Y">Y:</label>
-            <input id="Y" type="text" name="y">
+            <input id="Y" type="text" name="y" placeholder="-5 до 3">
 
             <label for="R">R</label><select name="R" id="R">
             <option value="1" selected>R:1</option>
@@ -43,7 +43,26 @@
             <button id="SendData">Check data</button>
         </div>
     </div>
-</form>
-<div id="out" class="output"><h1>Вывод:</h1></div>
+</div>
+<div class="outContainer">
+    <table id="res_table">
+        <thead>
+        <tr>
+            <td>X</td>
+            <td>Y</td>
+            <td>R</td>
+            <td>Result</td>
+            <td>TimeWork</td>
+            <td>CurrentTime</td>
+        </tr>
+        </thead>
+        <tbody id="results"></tbody>
+
+
+
+    </table>
+</div>
+
+<script type="text/javascript" src="validator.js"></script>
 </body>
 </html>

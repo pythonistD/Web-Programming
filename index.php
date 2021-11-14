@@ -17,66 +17,20 @@ $y = $_GET["y"];
 $r = $_GET["R"];
 //Hit check functions
 global $message;
-function checkHit($x, $y, $r)
-{
-    return checkTriangle($x, $y, $r) ||
-        checkSq($x, $y, $r) || checkSector($x, $y, $r);
-}
-
-function checkTriangle($x, $y, $r)
-{
-    $S1 = squareArea(0, 0, $x, $y, $r / 2, 0);
-    $S2 = squareArea(0, $r / 2, $x, $y, $r / 2, 0);
-    $S3 = squareArea(0, 0, $x, $y, $r / 2, 0);
-    $S = squareArea(0, 0, 0, $r / 2, $r / 2, 0);
-    $Sum = $S1 + $S2 + $S3;
-    return !($Sum > $S);
-}
-
-function squareArea($x1, $y1, $x2, $y2, $x3, $y3)
-{
-    $a = module($x1, $y1, $x2, $y2);
-    $b = module($x2, $y2, $x3, $y3);
-    $c = module($x3, $y3, $x1, $y1);
-    $p = $a + $b + $c;
-    return sqrt($p * ($p - $a) * ($p - $b) * ($p - $c));
-}
-
-function module($x1, $y1, $x2, $y2)
-{
-    return sqrt(($x2 - $x1) ^ 2 + ($y2 - $y1) ^ 2);
-}
-
-function checkSq($x, $y, $r)
-{
-    return $x >= 0 && $x <= $r &&
-        $y <= 0 && $y >= -$r;
-}
-
-function checkSector($x, $y, $r)
-{
-    return $x <= 0 && $y >= 0 &&
-        sqrt($x ^ 2 + $y ^ 2) <= $r;
+function checkCoordinates($x, $y, $r) {
+    return (($x >= -$r) && ($x <= 0) && ($y <= 0) && ($y >= -$r / 2)) ||
+        (($x >= 0) && ($y <= 0) && ($y >= 2 * $x - $r)) ||
+        ((($x ** 2 + $y ** 2) <= ($r ** 2)) && ($x >= 0) && ($y >= 0));
 }
 
  function hitInfo($x, $y, $r)
 {
-    if (checkHit($x, $y, $r)) {
+    if (checkCoordinates($x, $y, $r)) {
         $message = "Точка попала";
     } else {
         $message = "Точка не попала";
     }
     return $message;
-}
-
-function sessionNumber()
-{
-    if (!isset($_SESSION['count'])) {
-        $_SESSION['count'] = 1;
-    } else {
-        ++$_SESSION['count'];
-    }
-
 }
 function checkData($x, $y, $r) {
     return in_array($x, array(-4,-3,-2, -1, 0,1,2,3,4)) &&

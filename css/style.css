@@ -72,3 +72,12 @@ div.main-form{
 body{
    height:600px;
 }
+div.clear_session{
+    padding: 8px;
+}
+#res_table > td{
+    width: 20px;
+}
+tr > td {
+
+}

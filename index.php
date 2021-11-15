@@ -49,7 +49,7 @@ isReqCorrect(checkData($x,$y,$r));
 $finish = microtime(true);
 //высчитываем время работы (разницу) и округляем
 $timeWork = $finish - $start;
-$timeWork = round($timeWork, 7);
+$timeWork = number_format(round($timeWork, 7),6);
 $message = hitInfo($x, $y, $r);
 $_SESSION["tableRW"][] = "<tr>
 	  <td>$x</td>

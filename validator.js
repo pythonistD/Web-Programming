@@ -11,18 +11,32 @@ function defineValues() {
     }
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("SendData").addEventListener("click", function (e) {
-            defineValues();
-            if (validateY()) {
-                fetch(createRequest()).then(async response => {
-                    document.getElementById("results").innerHTML += await response.text();
-                }).catch(err => createNotification("Ошибка HTTP. Повторите попытку позже. " + err));
-            }
-        }
-    )
-});
 
+document.getElementById("SendData").addEventListener("click", function (e) {
+        defineValues();
+        if (validateY()) {
+            fetch(createRequest()).then(async response => {
+                let message = await response.text();
+                if (message === "Error:400") {
+                    document.getElementById("errorOut").innerHTML = message;
+                } else {
+                    document.getElementById("results").innerHTML += message;
+                }
+            }).catch(err => createNotification("Ошибка HTTP. Повторите попытку позже. " + err));
+        }
+    }
+)
+
+document.getElementById('clear').addEventListener('click',function (e) {
+    fetch('clearHistory.php').then(r => {
+        window.location.reload();
+    });
+})
+window.onload = function (){
+    fetch('loadTable.php').then(async response =>{
+        document.getElementById("results").innerHTML = await response.text();
+    })
+}
 
 function createRequest() {
     let path = 'index.php?x='
@@ -40,13 +54,13 @@ function createNotification(message) {
 }
 
 function validateY() {
-        if (!isNumeric(y)) {
-            createNotification("y не число");
-            return false;
-        } else if (!((y >= -5) && (y <= 3))) {
-            createNotification("y не входит в область допустимых значений");
-            return false;
-        } else return true;
+    if (!isNumeric(y)) {
+        createNotification("y не число");
+        return false;
+    } else if (!((y >= -5) && (y <= 3))) {
+        createNotification("y не входит в область допустимых значений");
+        return false;
+    } else return true;
 }
 
 function isNumeric(n) {

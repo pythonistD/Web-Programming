@@ -45,12 +45,12 @@ function isReqCorrect($bool){
 
 }
 isReqCorrect(checkData($x,$y,$r));
+$message = hitInfo($x, $y, $r);
 //получаем время окончания работы скрипта
 $finish = microtime(true);
 //высчитываем время работы (разницу) и округляем
 $timeWork = $finish - $start;
 $timeWork = number_format(round($timeWork, 7),6);
-$message = hitInfo($x, $y, $r);
 $_SESSION["tableRW"][] = "<tr>
 	  <td>$x</td>
 	  <td>$y</td>

@@ -14,6 +14,7 @@ $now = date("d.m.y H:i");
 //получаем параметры из main.html
 $x = $_GET["x"];
 $y = $_GET["y"];
+$y = substr($y,0,6);
 $r = $_GET["R"];
 //Hit check functions
 global $message;
@@ -32,14 +33,16 @@ function checkCoordinates($x, $y, $r) {
     }
     return $message;
 }
+
 function checkData($x, $y, $r) {
     return in_array($x, array(-4,-3,-2, -1, 0,1,2,3,4)) &&
-        is_numeric($y) && ($y >= -5 && $y <= 3) &&
+        is_numeric($y) && ($y > -5 && $y < 3) &&
         in_array($r, array(1, 2, 3, 4, 5));
 }
 function isReqCorrect($bool){
     if(!$bool){
         echo "Error:400";
+        http_response_code(400);
         exit(400);
     }
 

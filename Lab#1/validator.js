@@ -14,7 +14,7 @@ function defineValues() {
 
 document.getElementById("SendData").addEventListener("click", function (e) {
         defineValues();
-        if (validateY()) {
+        if (validateY() && validateX() && validateR()) {
             fetch(createRequest()).then(async response => {
                 let message = await response.text();
                 if (message === "Error:400") {
@@ -57,10 +57,24 @@ function validateY() {
     if (!isNumeric(y)) {
         createNotification("y не число");
         return false;
-    } else if (!((y >= -5) && (y <= 3))) {
+    } else if (!((y > -5) && (y < 3))) {
         createNotification("y не входит в область допустимых значений");
         return false;
     } else return true;
+}
+function validateX() {
+    if (isNumeric(x)) return true;
+    else {
+        createNotification("x не выбран");
+        return false;
+    }
+}
+function validateR() {
+    if (isNumeric(x)) return true;
+    else {
+        createNotification("R не выбран");
+        return false;
+    }
 }
 
 function isNumeric(n) {

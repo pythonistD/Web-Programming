@@ -78,6 +78,11 @@ div.clear_session{
 #res_table > td{
     width: 20px;
 }
-tr > td {
-
+input[type='text'] {
+    border-radius: 10px;
+    border: 1px solid black;
+}
+input[type='radio']:checked + label {
+    background-color:#bfb;
+    border-color: #4c4;
 }

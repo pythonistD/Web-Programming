@@ -62,7 +62,10 @@ div.main-form{
 #center{
     height:50%;
 }
-
+#img{
+    float: left;
+    width: 25%;
+}
 #outContainer{
     height:20%;
 }

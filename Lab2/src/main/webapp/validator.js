@@ -39,7 +39,7 @@ window.onload = function (){
 }
 
 function createRequest() {
-    let path = 'index.php?x='
+    let path = '${pageContext.request.contextPath}/main?x='
         + x + '&y='
         + y + '&R='
         + r;

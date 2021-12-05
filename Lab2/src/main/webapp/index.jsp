@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/style.css">
@@ -16,10 +16,11 @@
 </header>
 <div id="center">
     <div id="img">
-        <svg xmlns="http://www.w3.org/2000/svg" id="img">
+        <svg xmlns="http://www.w3.org/2000/svg">
             <line x1="0" y1="150" x2="300" y2="150" stroke="#000720"></line>
             <line x1="150" y1="0" x2="150" y2="300" stroke="#000720"></line>
             <line x1="270" y1="148" x2="270" y2="152" stroke="#000720"></line>
+            <line x1="270" y1="148" x2="270" y2="200" stroke="#000720"></line>
             <text x="265" y="140">R</text>
             <text x="200" y="140">R/2</text>
             <text x="75" y="140">-R/2</text>
@@ -30,9 +31,9 @@
             <text x="156" y="275">-R</text>
             <polygon points="300,150 295,155 295, 145" fill="#000720" stroke="#000720"></polygon>
             <polygon points="150,0 145,5 155,5" fill="#000720" stroke="#000720"></polygon>
-            <rect x="150" y="150" width="120" height="120" fill-opacity="0.4" stroke="navy" fill="blue"></rect>
-            <polygon points="150,150 150,95 210,150" fill-opacity="0.4" stroke="navy" fill="blue"></polygon>
-            <path d="M150 95 A 75 75, 0, 0, 0, 75 150 L 150 150 Z" fill-opacity="0.4" stroke="red" fill="red"></path>
+            <rect x="150" y="90" width="120" height="60" fill-opacity="0.4" stroke="navy" fill="blue"></rect>
+            <polygon points="150,150 270,150 150,210" fill-opacity="0.4" stroke="navy" fill="blue"></polygon>
+            <path d="M90 150 A 75 75, 0, 0, 0, 150 210 L 150 150 Z" fill-opacity="0.4" stroke="navy" fill="blue"></path>
         </svg>
     </div>
     <div id="right_bar">

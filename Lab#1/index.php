@@ -12,10 +12,29 @@ $start = microtime(true);
 date_default_timezone_set('Europe/Moscow');
 $now = date("d.m.y H:i");
 //получаем параметры из main.html
-$x = $_GET["x"];
-$y = $_GET["y"];
-$y = substr($y,0,6);
-$r = $_GET["R"];
+if(isset($_GET["x"])){
+    $x = $_GET["x"];
+}else{
+    echo "Error:400";
+    http_response_code(400);
+    exit(400);
+}
+if(isset($_GET["y"])){
+    $y = $_GET["y"];
+    $y = substr($y,0,6);
+}else{
+    echo "Error:400";
+    http_response_code(400);
+    exit(400);
+}
+if(isset($_GET["R"])){
+    $r = $_GET["R"];
+}else{
+    echo "Error:400";
+    http_response_code(400);
+    exit(400);
+}
+
 //Hit check functions
 global $message;
 function checkCoordinates($x, $y, $r) {

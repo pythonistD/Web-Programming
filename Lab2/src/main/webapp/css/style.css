@@ -63,14 +63,14 @@ div.main-form{
     height:50%;
 }
 #img{
-    float: left;
-    width: 25%;
+    height: 310px;
+    width: 310px;
 }
 #outContainer{
     height:20%;
 }
 body{
-   height:600px;
+    height:600px;
 }
 div.clear_session{
     padding: 8px;

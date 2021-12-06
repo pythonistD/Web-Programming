@@ -15,7 +15,7 @@ function defineValues() {
 document.getElementById("SendData").addEventListener("click", function (e) {
         defineValues();
         if (validateX() && validateR()) {
-            fetch(createRequest()).then(async response => {
+            fetch(createRequest(x,y,r)).then(async response => {
                 let message = await response.text();
                 if (message === "Error:400") {
                     document.getElementById("errorOut").innerHTML = message;
@@ -32,16 +32,16 @@ document.getElementById('clear').addEventListener('click',function (e) {
         window.location.reload();
     });
 })
-window.onload = function (){
-    fetch('loadTable.php').then(async response =>{
-        document.getElementById("results").innerHTML = await response.text();
-    })
-}
+// window.onload = function (){
+//     fetch('loadTable.php').then(async response =>{
+//         document.getElementById("results").innerHTML = await response.text();
+//     })
+// }
 
-function createRequest() {
-    let path = '${pageContext.request.contextPath}/main?x='
+function createRequest(x,y,r) {
+    let path = 'main?x='
         + x + '&y='
-        + y + '&R='
+        + y + '&r='
         + r;
     let header = new Headers();
     header.append('Content-Type', 'application/x-www-form-url')

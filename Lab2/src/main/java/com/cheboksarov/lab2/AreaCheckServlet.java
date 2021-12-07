@@ -26,13 +26,15 @@ public class AreaCheckServlet extends HttpServlet {
             getServletContext().setAttribute("table", table);
         }
 
-        int x = getIntValue(req,"x");
+        double x = getDoubleValue(req,"x");
         double y = getDoubleValue(req,"y");
-        int r = getIntValue(req,"r");
-        //Здесь должна выполняться валидация
+        double r = getDoubleValue(req,"r");
 
+        //Здесь должна выполняться валидация
+        checkODZ(validateX(x),validateR(r));
         //Проверка на попадание
         boolean isHit = checkHitResult(x,y,r);
+
 
 
         // Работа с датой и временем
@@ -56,21 +58,40 @@ public class AreaCheckServlet extends HttpServlet {
     }
 
     private boolean checkTriangle(double x, double y, double r){
-        return x <= 0 && y <= 0 && x + 2*y >= -r;
+        return x >= 0 && y <= 0 && x - y < r;
     }
 
     private boolean checkRectangle(double x, double y, double r){
-        return x >= 0 && x <= r/2 && y <= 0 && y >= -r;
+        return x <= 0 && x >= -r && y <= 0 && y >= -r;
     }
 
     private boolean checkCircle(double x, double y, double r){
-        return x >= 0 && y >= 0 && x*x + y*y <= r*r/4;
+        return x >= 0 && y >= 0 && x*x + y*y <= r*r;
     }
 
     public double getDoubleValue(HttpServletRequest request, String parameter) throws NumberFormatException {
-        return Double.parseDouble(request.getParameter(parameter).replace(",", "."));
+        String t = request.getParameter(parameter).replace(",", ".");
+        if(t.length() > 6){
+            t = t.substring(0,6);
+        }
+        return Double.parseDouble(t);
     }
     public int getIntValue(HttpServletRequest request, String parameter) throws NumberFormatException {
         return Integer.parseInt(request.getParameter(parameter).replace(",", "."));
     }
+    public boolean validateX(double x){
+        return x > -5 && x < 5;
+    }
+    public boolean validateR(double r){
+        return r > 1 && r < 4;
+    }
+    public void checkODZ(boolean isX, boolean isR){
+        if(!isR || !isX){
+            throw new IllegalArgumentException("Bad arguments");
+        }
+    }
+
+
+
+
 }

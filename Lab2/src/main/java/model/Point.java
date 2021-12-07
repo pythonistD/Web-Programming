@@ -3,8 +3,8 @@ package model;
 import java.io.Serializable;
 
 public class Point implements Serializable {
-    private int x;
-    private int r;
+    private double x;
+    private double r;
     private double y;
     private String curTime;
     private String timeOfWork;
@@ -13,7 +13,7 @@ public class Point implements Serializable {
     public Point() {
     }
 
-    public Point(int x, double y, int r, String curTime, String timeOfWork, boolean isHit) {
+    public Point(double x, double y, double r, String curTime, String timeOfWork, boolean isHit) {
         this.x = x;
         this.r = r;
         this.y = y;
@@ -41,7 +41,7 @@ public class Point implements Serializable {
         isHit = hit;
     }
 
-    public int getX() {
+    public double getX() {
         return x;
     }
 
@@ -49,7 +49,7 @@ public class Point implements Serializable {
         this.x = x;
     }
 
-    public int getR() {
+    public double getR() {
         return r;
     }
 

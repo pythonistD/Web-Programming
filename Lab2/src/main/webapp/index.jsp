@@ -22,7 +22,7 @@
             <line x1="150" y1="0" x2="150" y2="300" stroke="#000720"></line>
             <text x="265" y="140">R</text>
             <text x="200" y="140">R/2</text>
-            <text x="75" y="140">-R/2</text>
+            <text x="65" y="140">-R/2</text>
             <text x="20" y="140">-R</text>
             <text x="156" y="35">R</text>
             <text x="156" y="95">R/2</text>
@@ -30,35 +30,31 @@
             <text x="156" y="275">-R</text>
             <polygon points="300,150 295,155 295, 145" fill="#000720" stroke="#000720"></polygon>
             <polygon points="150,0 145,5 155,5" fill="#000720" stroke="#000720"></polygon>
-            <rect x="150" y="150" width="120" height="120" fill-opacity="0.4" stroke="navy" fill="blue"></rect>
-            <polygon points="150,150 150,95 210,150" fill-opacity="0.4" stroke="navy" fill="blue"></polygon>
-            <path d="M150 95 A 75 75, 0, 0, 0, 75 150 L 150 150 Z" fill-opacity="0.4" stroke="red" fill="red"></path>
+            <rect x="20" y="150" width="130" height="65" fill-opacity="0.4" stroke="navy" fill="blue"></rect>
+            <polygon points="150,150 200,150 150,280" fill-opacity="0.4" stroke="navy" fill="blue"></polygon>
+            <path d="M150 35 A 150 150, 0, 0, 1, 265 150 L 150 150 Z" fill-opacity="0.4" stroke="red" fill="red"></path>
         </svg>
     </div>
     <div id="right_bar">
         <div class="main-form">
             <div class="wrapper">
                 <div class="row">
-                    X:
-                    <input id="1" type="radio" name="x" value="-4"><label for="1">-4</label>
-                    <input id="2" type="radio" name="x" value="-3"><label for="2">-3</label>
-                    <input id="3" type="radio" name="x" value="-2"><label for="3">-2</label>
-                    <input id="4" type="radio" name="x" value="-1"><label for="4">-1</label>
-                    <input id="5" type="radio" name="x" value="0"><label for="5">0</label>
-                    <input id="6" type="radio" name="x" value="1"><label for="6">1</label>
-                    <input id="7" type="radio" name="x" value="2"><label for="7">2</label>
-                    <input id="8" type="radio" name="x" value="3"><label for="8">3</label>
-                    <input id="9" type="radio" name="x" value="4"><label for="9">4</label>
-                    <label for="Y">Y:</label>
-                    <input id="Y" type="text" name="y" placeholder="-5 до 3" >
+                    Y:
+                    <input id="1" type="radio" name="y" value="-2"><label for="1">-2</label>
+                    <input id="2" type="radio" name="y" value="-1.5"><label for="2">-1.5</label>
+                    <input id="3" type="radio" name="y" value="-1"><label for="3">-1</label>
+                    <input id="4" type="radio" name="y" value="-0.5"><label for="4">-0.5</label>
+                    <input id="5" type="radio" name="y" value="0"><label for="5">0</label>
+                    <input id="6" type="radio" name="y" value="0.5"><label for="6">0.5</label>
+                    <input id="7" type="radio" name="y" value="1"><label for="7">1</label>
+                    <input id="8" type="radio" name="y" value="1.5"><label for="8">1.5</label>
+                    <input id="9" type="radio" name="y" value="2"><label for="9">2</label>
+                    <label for="X">X:</label>
+                    <input id="X" type="text" name="x" placeholder="от -5 до 5" >
 
-                    <label for="R">R</label><select name="R" id="R">
-                    <option value="1">R:1</option>
-                    <option value="2">R:2</option>
-                    <option value="3">R:3</option>
-                    <option value="4">R:4</option>
-                    <option value="5">R:5</option>
-                </select>
+                    <label for="R">R</label>
+                    <input id="R" type="text" name="r" placeholder="от 1 до 4" >
+
                 </div>
                 <div class="submit">
                     <button id="SendData">Check data</button>
@@ -93,9 +89,9 @@
                 <td>${point.x}</td>
                 <td>${point.y}</td>
                 <td>${point.r}</td>
-                <td>${point.curTime}</td>
-                <td>${point.timeOfWork}</td>
                 <td>${point.hit}</td>
+                <td>${point.timeOfWork}</td>
+                <td>${point.curTime}</td>
             </tr>
         </c:forEach>
         </tbody>

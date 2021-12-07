@@ -4,19 +4,19 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Table implements Serializable {
-    private ArrayList<Point> pointList;
+    private static ArrayList<Point> pointList;
 
     public Table() {
-        this.pointList = new ArrayList<>();
+        pointList = new ArrayList<>();
     }
 
     public void addPoint(Point point){
-        this.pointList.add(point);
+        pointList.add(point);
     }
 
 
     public void setPointList(ArrayList<Point> pointList) {
-        this.pointList = pointList;
+        Table.pointList = pointList;
     }
 
     public ArrayList<Point> getPointList() {

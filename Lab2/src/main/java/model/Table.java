@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Table implements Serializable {
-    private static ArrayList<Point> pointList;
+    private ArrayList<Point> pointList;
 
     public Table() {
         pointList = new ArrayList<>();
@@ -16,7 +16,7 @@ public class Table implements Serializable {
 
 
     public void setPointList(ArrayList<Point> pointList) {
-        Table.pointList = pointList;
+        this.pointList = pointList;
     }
 
     public ArrayList<Point> getPointList() {

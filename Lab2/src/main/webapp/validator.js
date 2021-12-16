@@ -82,6 +82,7 @@ document.getElementById('clear').addEventListener('click',function (e) {
         window.location.reload();
     });
 })
+
 // window.onload = function (){
 //     fetch('loadTable.php').then(async response =>{
 //         document.getElementById("results").innerHTML = await response.text();

@@ -38,6 +38,10 @@
         </c:forEach>
         </tbody>
     </table>
+    <div class="back">
+        <button id="Back">back</button>
+    </div>
 </div>
 </body>
+<script type="text/javascript" src="redirect.js"></script>
 </html>

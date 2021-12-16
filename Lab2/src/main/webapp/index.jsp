@@ -83,6 +83,7 @@
         </tr>
         </thead>
         <tbody id="results">
+        <%! %>
         <jsp:useBean id="table" scope="application" class="model.Table" />
         <c:forEach var="point" items="${table.pointList}">
             <tr>

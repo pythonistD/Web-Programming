@@ -66,6 +66,9 @@ document.getElementById("SendData").addEventListener("click", function (e) {
 function doGet(req){
     return  fetch(req).then(async response => {
         let message = await response.text();
+        if (response.redirected) {
+            window.location.href = response.url;
+        }
         if (message === "Error:400") {
             document.getElementById("errorOut").innerHTML = message;
         } else {
@@ -92,7 +95,7 @@ function createRequest(x,y,r) {
         + r;
     let header = new Headers();
     header.append('Content-Type', 'application/x-www-form-url')
-    let init = {method: 'GET', headers: header};
+    let init = {method: 'GET', headers: header,redirect: "follow"};
     return new Request(path, init);
 }
 

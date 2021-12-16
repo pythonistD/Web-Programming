@@ -32,7 +32,7 @@
             <polygon points="150,0 145,5 155,5" fill="#000720" stroke="#000720"></polygon>
             <rect x="20" y="150" width="130" height="65" fill-opacity="0.4" stroke="navy" fill="blue"></rect>
             <polygon points="150,150 200,150 150,280" fill-opacity="0.4" stroke="navy" fill="blue"></polygon>
-            <path d="M150 35 A 150 150, 0, 0, 1, 265 150 L 150 150 Z" fill-opacity="0.4" stroke="red" fill="red"></path>
+            <path d="M150 40 A 150 150, 0, 0, 1, 260 150 L 150 150 Z" fill-opacity="0.4" stroke="red" fill="red"></path>
         </svg>
     </div>
     <div id="right_bar">

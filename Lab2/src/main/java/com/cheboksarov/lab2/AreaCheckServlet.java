@@ -50,6 +50,8 @@ public class AreaCheckServlet extends HttpServlet {
         //Данные, которые нужно вывести по итогу
         Point point = new Point(x,y,r,curTime,timeOfWork,isHit);
         table.addPoint(point);
+        String path = req.getContextPath() + "/table.jsp";
+        resp.sendRedirect(path);
         PrintWriter writer = resp.getWriter();
         writer.println(point.getTr());
     }
@@ -58,7 +60,7 @@ public class AreaCheckServlet extends HttpServlet {
     }
 
     private boolean checkTriangle(double x, double y, double r){
-        return x >= 0 && y <= 0 && x - y < r;
+        return x >= 0 && y <= 0 && y - 2*x > -r;
     }
 
     private boolean checkRectangle(double x, double y, double r){

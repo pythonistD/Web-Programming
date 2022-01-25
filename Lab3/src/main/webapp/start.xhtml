@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<html
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:p="http://primefaces.org/ui"
+>
+<h:head>
+    <title>Стартовая страница</title>
+    <h:outputStylesheet name="start.css"/>
+</h:head>
+<h:body>
+    <div id="center">
+        <header>
+            <h1>Лабораторная работа №3</h1>
+            <span class="author-name">Чебоксаров Ярослав Максимович</span>
+            <span class="cursive">P3211</span>
+            <span>Вариант: -77</span>
+        </header>
+        <main>
+            <h:outputText id="time" value="#{clock.time}"/>
+            <p:poll interval="13" update="time"/>
+        </main>
+        <footer>
+            <h:link value="To the main page" outcome="main"/>
+        </footer>
+    </div>
+</h:body>
+</html>
